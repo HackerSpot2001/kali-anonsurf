@@ -18,6 +18,7 @@ fi
 # Compile the i2p ppa
 echo "deb https://ppa.launchpadcontent.net/i2p-maintainers/i2p/ubuntu noble main" > /etc/apt/sources.list.d/i2p.list # Default config reads repos from sources.list.d
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AB9660B9EB2CC88B  # Add i2p maintainer keys # TODO: Is there a more universal way to do this?
+apt-key export EB2CC88B | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/i2p.gpg 
 apt-get update # Update repos
 
 apt-get install -y secure-delete tor i2p  i2p-router # install dependencies, just in case
